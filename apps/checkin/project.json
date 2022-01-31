@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/checkin",
+  "sourceRoot": "apps/checkin/src",
+  "prefix": "my-project",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/checkin",
+        "index": "apps/checkin/src/index.html",
+        "main": "apps/checkin/src/main.ts",
+        "polyfills": "apps/checkin/src/polyfills.ts",
+        "tsConfig": "apps/checkin/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/checkin/src/favicon.ico", "apps/checkin/src/assets"],
+        "styles": ["apps/checkin/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/checkin/src/environments/environment.ts",
+              "with": "apps/checkin/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "checkin:build:production"
+        },
+        "development": {
+          "browserTarget": "checkin:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "checkin:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/checkin/src/**/*.ts",
+          "apps/checkin/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/checkin"],
+      "options": {
+        "jestConfig": "apps/checkin/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["domain:checkin", "type:app"]
+}

@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/booking/feature-search",
+  "sourceRoot": "libs/booking/feature-search/src",
+  "prefix": "booking",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/booking/feature-search"],
+      "options": {
+        "project": "libs/booking/feature-search/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/booking/feature-search/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/booking/feature-search/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/booking/feature-search"],
+      "options": {
+        "jestConfig": "libs/booking/feature-search/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/booking/feature-search/src/**/*.ts",
+          "libs/booking/feature-search/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:booking", "type:feature"]
+}

@@ -1,0 +1,9 @@
+<h1>booking-manage</h1>
+
+<table class="table">
+  <tr *ngFor="let tickets of ticketsList$ | async">
+    <td>{{ tickets.id }}</td>
+    <td>{{ tickets.name }}</td>
+    <td>{{ tickets.description }}</td>
+  </tr>
+</table>

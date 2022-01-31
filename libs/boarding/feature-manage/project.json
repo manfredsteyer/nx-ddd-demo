@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/boarding/feature-manage",
+  "sourceRoot": "libs/boarding/feature-manage/src",
+  "prefix": "boarding",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/boarding/feature-manage"],
+      "options": {
+        "project": "libs/boarding/feature-manage/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/boarding/feature-manage/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/boarding/feature-manage/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/boarding/feature-manage"],
+      "options": {
+        "jestConfig": "libs/boarding/feature-manage/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/boarding/feature-manage/src/**/*.ts",
+          "libs/boarding/feature-manage/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:boarding", "type:feature"]
+}

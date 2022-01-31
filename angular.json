@@ -1,7 +1,24 @@
 {
   "version": 2,
   "projects": {
+    "boarding": "apps/boarding",
+    "boarding-domain": "libs/boarding/domain",
+    "boarding-e2e": "apps/boarding-e2e",
+    "boarding-feature-manage": "libs/boarding/feature-manage",
+    "booking": "apps/booking",
+    "booking-domain": "libs/booking/domain",
+    "booking-e2e": "apps/booking-e2e",
+    "booking-feature-manage": "libs/booking/feature-manage",
+    "booking-feature-search": "libs/booking/feature-search",
+    "checkin": "apps/checkin",
+    "checkin-domain": "libs/checkin/domain",
+    "checkin-e2e": "apps/checkin-e2e",
+    "checkin-feature-manage": "libs/checkin/feature-manage",
+    "checkin-feature-upgrade": "libs/checkin/feature-upgrade",
     "demo-app": "apps/demo-app",
-    "demo-app-e2e": "apps/demo-app-e2e"
+    "demo-app-e2e": "apps/demo-app-e2e",
+    "shared-ui-common": "libs/shared/ui-common",
+    "shared-util-auth": "libs/shared/util-auth",
+    "shared-util-logging": "libs/shared/util-logging"
   }
 }

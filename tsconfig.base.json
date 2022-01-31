@@ -14,7 +14,31 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@my-project/boarding/domain": ["libs/boarding/domain/src/index.ts"],
+      "@my-project/boarding/feature-manage": [
+        "libs/boarding/feature-manage/src/index.ts"
+      ],
+      "@my-project/booking/domain": ["libs/booking/domain/src/index.ts"],
+      "@my-project/booking/feature-manage": [
+        "libs/booking/feature-manage/src/index.ts"
+      ],
+      "@my-project/booking/feature-search": [
+        "libs/booking/feature-search/src/index.ts"
+      ],
+      "@my-project/checkin/domain": ["libs/checkin/domain/src/index.ts"],
+      "@my-project/checkin/feature-manage": [
+        "libs/checkin/feature-manage/src/index.ts"
+      ],
+      "@my-project/checkin/feature-upgrade": [
+        "libs/checkin/feature-upgrade/src/index.ts"
+      ],
+      "@my-project/shared/ui-common": ["libs/shared/ui-common/src/index.ts"],
+      "@my-project/shared/util-auth": ["libs/shared/util-auth/src/index.ts"],
+      "@my-project/shared/util-logging": [
+        "libs/shared/util-logging/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

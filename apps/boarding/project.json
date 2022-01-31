@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/boarding",
+  "sourceRoot": "apps/boarding/src",
+  "prefix": "my-project",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/boarding",
+        "index": "apps/boarding/src/index.html",
+        "main": "apps/boarding/src/main.ts",
+        "polyfills": "apps/boarding/src/polyfills.ts",
+        "tsConfig": "apps/boarding/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/boarding/src/favicon.ico", "apps/boarding/src/assets"],
+        "styles": ["apps/boarding/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/boarding/src/environments/environment.ts",
+              "with": "apps/boarding/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "boarding:build:production"
+        },
+        "development": {
+          "browserTarget": "boarding:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "boarding:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/boarding/src/**/*.ts",
+          "apps/boarding/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/boarding"],
+      "options": {
+        "jestConfig": "apps/boarding/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["domain:boarding", "type:app"]
+}

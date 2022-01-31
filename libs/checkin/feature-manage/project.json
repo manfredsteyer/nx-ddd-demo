@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/checkin/feature-manage",
+  "sourceRoot": "libs/checkin/feature-manage/src",
+  "prefix": "checkin",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/checkin/feature-manage"],
+      "options": {
+        "project": "libs/checkin/feature-manage/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/checkin/feature-manage/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/checkin/feature-manage/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/checkin/feature-manage"],
+      "options": {
+        "jestConfig": "libs/checkin/feature-manage/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/checkin/feature-manage/src/**/*.ts",
+          "libs/checkin/feature-manage/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:checkin", "type:feature"]
+}

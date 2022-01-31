@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/util-auth",
+  "sourceRoot": "libs/shared/util-auth/src",
+  "prefix": "auth",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/shared/util-auth"],
+      "options": {
+        "project": "libs/shared/util-auth/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/util-auth/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/util-auth/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/util-auth"],
+      "options": {
+        "jestConfig": "libs/shared/util-auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/util-auth/src/**/*.ts",
+          "libs/shared/util-auth/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:shared", "type:util"]
+}

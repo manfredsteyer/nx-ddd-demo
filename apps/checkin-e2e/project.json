@@ -1,0 +1,28 @@
+{
+  "root": "apps/checkin-e2e",
+  "sourceRoot": "apps/checkin-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/checkin-e2e/cypress.json",
+        "devServerTarget": "checkin:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "checkin:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/checkin-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["checkin"]
+}

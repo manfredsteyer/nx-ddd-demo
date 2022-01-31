@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/util-logging",
+  "sourceRoot": "libs/shared/util-logging/src",
+  "prefix": "logging",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/shared/util-logging"],
+      "options": {
+        "project": "libs/shared/util-logging/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/util-logging/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/util-logging/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/util-logging"],
+      "options": {
+        "jestConfig": "libs/shared/util-logging/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/util-logging/src/**/*.ts",
+          "libs/shared/util-logging/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:shared", "type:util"]
+}
