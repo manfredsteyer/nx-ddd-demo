@@ -1,3 +1,5 @@
+// Public API
+
 export * from './lib/booking-domain.module';
 
 export * from './lib/entities/flight';
